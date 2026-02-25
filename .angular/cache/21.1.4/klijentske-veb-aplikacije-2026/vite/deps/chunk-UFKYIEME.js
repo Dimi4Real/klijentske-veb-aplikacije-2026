@@ -7,7 +7,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-7I7UG7P2.js";
+} from "./chunk-X4VONPNX.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -90,7 +90,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-VIBZ5ONV.js";
+} from "./chunk-4OKGCJT3.js";
 import {
   __objRest,
   __spreadProps,
@@ -4040,6 +4040,7 @@ export {
   provideProtractorTestingSupport,
   platformBrowser,
   BrowserModule,
+  HttpClient,
   Meta,
   Title,
   enableDebugTools,
@@ -4061,4 +4062,4 @@ export {
   provideClientHydration,
   VERSION
 };
-//# sourceMappingURL=chunk-VNHWLFIS.js.map
+//# sourceMappingURL=chunk-UFKYIEME.js.map

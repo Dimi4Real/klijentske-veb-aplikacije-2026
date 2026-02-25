@@ -56,7 +56,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-VIBZ5ONV.js";
+} from "./chunk-4OKGCJT3.js";
 import {
   __spreadProps,
   __spreadValues
@@ -4483,6 +4483,7 @@ export {
   PathLocationStrategy,
   Location,
   HashLocationStrategy,
+  NgTemplateOutlet,
   CommonModule,
   PRECOMMIT_HANDLER_SUPPORTED,
   PlatformNavigation,
@@ -4493,4 +4494,4 @@ export {
   isPlatformBrowser,
   ViewportScroller
 };
-//# sourceMappingURL=chunk-7I7UG7P2.js.map
+//# sourceMappingURL=chunk-X4VONPNX.js.map

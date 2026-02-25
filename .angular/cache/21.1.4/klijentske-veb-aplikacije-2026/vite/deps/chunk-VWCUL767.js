@@ -1,34 +1,34 @@
 import {
+  _VisuallyHiddenLoader,
+  _setInnerHtml
+} from "./chunk-PCHI5QIL.js";
+import {
+  _CdkPrivateStyleLoader
+} from "./chunk-VRTVLALN.js";
+import {
   coerceElement,
   coerceNumberProperty
-} from "./chunk-W3RRIGA3.js";
+} from "./chunk-5R7SXXDX.js";
 import {
   _getEventTarget,
   _getFocusedElementPierceShadowDom,
   _getShadowRoot,
   normalizePassiveListenerOptions
-} from "./chunk-GMA3HLX3.js";
+} from "./chunk-GTZBACSI.js";
 import {
   Platform
-} from "./chunk-A6WUHTDV.js";
-import {
-  BidiModule
-} from "./chunk-KGGDGMWJ.js";
+} from "./chunk-JFORE5VD.js";
 import {
   DomSanitizer
-} from "./chunk-VNHWLFIS.js";
+} from "./chunk-UFKYIEME.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
-  ApplicationRef,
   BehaviorSubject,
   CSP_NONCE,
-  ChangeDetectionStrategy,
-  Component,
   DOCUMENT,
   Directive,
   ElementRef,
-  EnvironmentInjector,
   EventEmitter,
   Injectable,
   InjectionToken,
@@ -40,15 +40,12 @@ import {
   Output,
   QueryList,
   RendererFactory2,
-  SecurityContext,
   Subject,
   Subscription,
-  ViewEncapsulation,
   afterNextRender,
   booleanAttribute,
   combineLatest,
   concat,
-  createComponent,
   debounceTime,
   distinctUntilChanged,
   effect,
@@ -66,17 +63,33 @@ import {
   takeUntil,
   tap,
   ɵɵNgOnChangesFeature,
-  ɵɵclassProp,
-  ɵɵdefineComponent,
   ɵɵdefineDirective,
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-VIBZ5ONV.js";
+} from "./chunk-4OKGCJT3.js";
 import {
   __spreadProps,
   __spreadValues
 } from "./chunk-653SOEEV.js";
+
+// node_modules/@angular/cdk/fesm2022/_array-chunk.mjs
+function coerceArray(value) {
+  return Array.isArray(value) ? value : [value];
+}
+
+// node_modules/@angular/cdk/fesm2022/_css-pixel-value-chunk.mjs
+function coerceCssPixelValue(value) {
+  if (value == null) {
+    return "";
+  }
+  return typeof value === "string" ? value : `${value}px`;
+}
+
+// node_modules/@angular/cdk/fesm2022/coercion.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
 
 // node_modules/@angular/cdk/fesm2022/_fake-event-detection-chunk.mjs
 function isFakeMousedownFromScreenReader(event) {
@@ -486,106 +499,234 @@ var CdkMonitorFocus = class _CdkMonitorFocus {
   });
 })();
 
-// node_modules/@angular/cdk/fesm2022/_style-loader-chunk.mjs
-var appsWithLoaders = /* @__PURE__ */ new WeakMap();
-var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
-  _appRef;
-  _injector = inject(Injector);
-  _environmentInjector = inject(EnvironmentInjector);
-  load(loader) {
-    const appRef = this._appRef = this._appRef || this._injector.get(ApplicationRef);
-    let data = appsWithLoaders.get(appRef);
-    if (!data) {
-      data = {
-        loaders: /* @__PURE__ */ new Set(),
-        refs: []
-      };
-      appsWithLoaders.set(appRef, data);
-      appRef.onDestroy(() => {
-        appsWithLoaders.get(appRef)?.refs.forEach((ref) => ref.destroy());
-        appsWithLoaders.delete(appRef);
-      });
-    }
-    if (!data.loaders.has(loader)) {
-      data.loaders.add(loader);
-      data.refs.push(createComponent(loader, {
-        environmentInjector: this._environmentInjector
-      }));
-    }
+// node_modules/@angular/cdk/fesm2022/observers.mjs
+function shouldIgnoreRecord(record) {
+  if (record.type === "characterData" && record.target instanceof Comment) {
+    return true;
   }
-  static ɵfac = function _CdkPrivateStyleLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __CdkPrivateStyleLoader)();
+  if (record.type === "childList") {
+    for (let i = 0; i < record.addedNodes.length; i++) {
+      if (!(record.addedNodes[i] instanceof Comment)) {
+        return false;
+      }
+    }
+    for (let i = 0; i < record.removedNodes.length; i++) {
+      if (!(record.removedNodes[i] instanceof Comment)) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
+}
+var MutationObserverFactory = class _MutationObserverFactory {
+  create(callback) {
+    return typeof MutationObserver === "undefined" ? null : new MutationObserver(callback);
+  }
+  static ɵfac = function MutationObserverFactory_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _MutationObserverFactory)();
   };
   static ɵprov = ɵɵdefineInjectable({
-    token: __CdkPrivateStyleLoader,
-    factory: __CdkPrivateStyleLoader.ɵfac,
+    token: _MutationObserverFactory,
+    factory: _MutationObserverFactory.ɵfac,
     providedIn: "root"
   });
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_CdkPrivateStyleLoader, [{
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MutationObserverFactory, [{
     type: Injectable,
     args: [{
       providedIn: "root"
     }]
   }], null, null);
 })();
-
-// node_modules/@angular/cdk/fesm2022/private.mjs
-var _VisuallyHiddenLoader = class __VisuallyHiddenLoader {
-  static ɵfac = function _VisuallyHiddenLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __VisuallyHiddenLoader)();
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: __VisuallyHiddenLoader,
-    selectors: [["ng-component"]],
-    exportAs: ["cdkVisuallyHidden"],
-    decls: 0,
-    vars: 0,
-    template: function _VisuallyHiddenLoader_Template(rf, ctx) {
-    },
-    styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_VisuallyHiddenLoader, [{
-    type: Component,
-    args: [{
-      exportAs: "cdkVisuallyHidden",
-      encapsulation: ViewEncapsulation.None,
-      template: "",
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      styles: [".cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;left:0}[dir=rtl] .cdk-visually-hidden{left:auto;right:0}\n"]
-    }]
-  }], null, null);
-})();
-var policy;
-function getPolicy() {
-  if (policy === void 0) {
-    policy = null;
-    if (typeof window !== "undefined") {
-      const ttWindow = window;
-      if (ttWindow.trustedTypes !== void 0) {
-        policy = ttWindow.trustedTypes.createPolicy("angular#components", {
-          createHTML: (s) => s
+var ContentObserver = class _ContentObserver {
+  _mutationObserverFactory = inject(MutationObserverFactory);
+  _observedElements = /* @__PURE__ */ new Map();
+  _ngZone = inject(NgZone);
+  constructor() {
+  }
+  ngOnDestroy() {
+    this._observedElements.forEach((_, element) => this._cleanupObserver(element));
+  }
+  observe(elementOrRef) {
+    const element = coerceElement(elementOrRef);
+    return new Observable((observer) => {
+      const stream = this._observeElement(element);
+      const subscription = stream.pipe(map((records) => records.filter((record) => !shouldIgnoreRecord(record))), filter((records) => !!records.length)).subscribe((records) => {
+        this._ngZone.run(() => {
+          observer.next(records);
         });
+      });
+      return () => {
+        subscription.unsubscribe();
+        this._unobserveElement(element);
+      };
+    });
+  }
+  _observeElement(element) {
+    return this._ngZone.runOutsideAngular(() => {
+      if (!this._observedElements.has(element)) {
+        const stream = new Subject();
+        const observer = this._mutationObserverFactory.create((mutations) => stream.next(mutations));
+        if (observer) {
+          observer.observe(element, {
+            characterData: true,
+            childList: true,
+            subtree: true
+          });
+        }
+        this._observedElements.set(element, {
+          observer,
+          stream,
+          count: 1
+        });
+      } else {
+        this._observedElements.get(element).count++;
+      }
+      return this._observedElements.get(element).stream;
+    });
+  }
+  _unobserveElement(element) {
+    if (this._observedElements.has(element)) {
+      this._observedElements.get(element).count--;
+      if (!this._observedElements.get(element).count) {
+        this._cleanupObserver(element);
       }
     }
   }
-  return policy;
-}
-function trustedHTMLFromString(html) {
-  return getPolicy()?.createHTML(html) || html;
-}
-function _setInnerHtml(element, html, sanitizer) {
-  const cleanHtml = sanitizer.sanitize(SecurityContext.HTML, html);
-  if (cleanHtml === null && (typeof ngDevMode === "undefined" || ngDevMode)) {
-    throw new Error(`Could not sanitize HTML: ${html}`);
+  _cleanupObserver(element) {
+    if (this._observedElements.has(element)) {
+      const {
+        observer,
+        stream
+      } = this._observedElements.get(element);
+      if (observer) {
+        observer.disconnect();
+      }
+      stream.complete();
+      this._observedElements.delete(element);
+    }
   }
-  element.innerHTML = trustedHTMLFromString(cleanHtml || "");
-}
+  static ɵfac = function ContentObserver_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _ContentObserver)();
+  };
+  static ɵprov = ɵɵdefineInjectable({
+    token: _ContentObserver,
+    factory: _ContentObserver.ɵfac,
+    providedIn: "root"
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ContentObserver, [{
+    type: Injectable,
+    args: [{
+      providedIn: "root"
+    }]
+  }], () => [], null);
+})();
+var CdkObserveContent = class _CdkObserveContent {
+  _contentObserver = inject(ContentObserver);
+  _elementRef = inject(ElementRef);
+  event = new EventEmitter();
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value) {
+    this._disabled = value;
+    this._disabled ? this._unsubscribe() : this._subscribe();
+  }
+  _disabled = false;
+  get debounce() {
+    return this._debounce;
+  }
+  set debounce(value) {
+    this._debounce = coerceNumberProperty(value);
+    this._subscribe();
+  }
+  _debounce;
+  _currentSubscription = null;
+  constructor() {
+  }
+  ngAfterContentInit() {
+    if (!this._currentSubscription && !this.disabled) {
+      this._subscribe();
+    }
+  }
+  ngOnDestroy() {
+    this._unsubscribe();
+  }
+  _subscribe() {
+    this._unsubscribe();
+    const stream = this._contentObserver.observe(this._elementRef);
+    this._currentSubscription = (this.debounce ? stream.pipe(debounceTime(this.debounce)) : stream).subscribe(this.event);
+  }
+  _unsubscribe() {
+    this._currentSubscription?.unsubscribe();
+  }
+  static ɵfac = function CdkObserveContent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _CdkObserveContent)();
+  };
+  static ɵdir = ɵɵdefineDirective({
+    type: _CdkObserveContent,
+    selectors: [["", "cdkObserveContent", ""]],
+    inputs: {
+      disabled: [2, "cdkObserveContentDisabled", "disabled", booleanAttribute],
+      debounce: "debounce"
+    },
+    outputs: {
+      event: "cdkObserveContent"
+    },
+    exportAs: ["cdkObserveContent"]
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkObserveContent, [{
+    type: Directive,
+    args: [{
+      selector: "[cdkObserveContent]",
+      exportAs: "cdkObserveContent"
+    }]
+  }], () => [], {
+    event: [{
+      type: Output,
+      args: ["cdkObserveContent"]
+    }],
+    disabled: [{
+      type: Input,
+      args: [{
+        alias: "cdkObserveContentDisabled",
+        transform: booleanAttribute
+      }]
+    }],
+    debounce: [{
+      type: Input
+    }]
+  });
+})();
+var ObserversModule = class _ObserversModule {
+  static ɵfac = function ObserversModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _ObserversModule)();
+  };
+  static ɵmod = ɵɵdefineNgModule({
+    type: _ObserversModule,
+    imports: [CdkObserveContent],
+    exports: [CdkObserveContent]
+  });
+  static ɵinj = ɵɵdefineInjector({
+    providers: [MutationObserverFactory]
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ObserversModule, [{
+    type: NgModule,
+    args: [{
+      imports: [CdkObserveContent],
+      exports: [CdkObserveContent],
+      providers: [MutationObserverFactory]
+    }]
+  }], null, null);
+})();
 
 // node_modules/@angular/cdk/fesm2022/_id-generator-chunk.mjs
 var counters = {};
@@ -967,11 +1108,6 @@ var FocusKeyManager = class extends ListKeyManager {
   }
 };
 
-// node_modules/@angular/cdk/fesm2022/_array-chunk.mjs
-function coerceArray(value) {
-  return Array.isArray(value) ? value : [value];
-}
-
 // node_modules/@angular/cdk/fesm2022/_breakpoints-observer-chunk.mjs
 var mediaQueriesForWebkitCompatibility = /* @__PURE__ */ new Set();
 var mediaQueryStyleNode;
@@ -1117,235 +1253,6 @@ var BreakpointObserver = class _BreakpointObserver {
 function splitQueries(queries) {
   return queries.map((query) => query.split(",")).reduce((a1, a2) => a1.concat(a2)).map((query) => query.trim());
 }
-
-// node_modules/@angular/cdk/fesm2022/observers.mjs
-function shouldIgnoreRecord(record) {
-  if (record.type === "characterData" && record.target instanceof Comment) {
-    return true;
-  }
-  if (record.type === "childList") {
-    for (let i = 0; i < record.addedNodes.length; i++) {
-      if (!(record.addedNodes[i] instanceof Comment)) {
-        return false;
-      }
-    }
-    for (let i = 0; i < record.removedNodes.length; i++) {
-      if (!(record.removedNodes[i] instanceof Comment)) {
-        return false;
-      }
-    }
-    return true;
-  }
-  return false;
-}
-var MutationObserverFactory = class _MutationObserverFactory {
-  create(callback) {
-    return typeof MutationObserver === "undefined" ? null : new MutationObserver(callback);
-  }
-  static ɵfac = function MutationObserverFactory_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _MutationObserverFactory)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _MutationObserverFactory,
-    factory: _MutationObserverFactory.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MutationObserverFactory, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], null, null);
-})();
-var ContentObserver = class _ContentObserver {
-  _mutationObserverFactory = inject(MutationObserverFactory);
-  _observedElements = /* @__PURE__ */ new Map();
-  _ngZone = inject(NgZone);
-  constructor() {
-  }
-  ngOnDestroy() {
-    this._observedElements.forEach((_, element) => this._cleanupObserver(element));
-  }
-  observe(elementOrRef) {
-    const element = coerceElement(elementOrRef);
-    return new Observable((observer) => {
-      const stream = this._observeElement(element);
-      const subscription = stream.pipe(map((records) => records.filter((record) => !shouldIgnoreRecord(record))), filter((records) => !!records.length)).subscribe((records) => {
-        this._ngZone.run(() => {
-          observer.next(records);
-        });
-      });
-      return () => {
-        subscription.unsubscribe();
-        this._unobserveElement(element);
-      };
-    });
-  }
-  _observeElement(element) {
-    return this._ngZone.runOutsideAngular(() => {
-      if (!this._observedElements.has(element)) {
-        const stream = new Subject();
-        const observer = this._mutationObserverFactory.create((mutations) => stream.next(mutations));
-        if (observer) {
-          observer.observe(element, {
-            characterData: true,
-            childList: true,
-            subtree: true
-          });
-        }
-        this._observedElements.set(element, {
-          observer,
-          stream,
-          count: 1
-        });
-      } else {
-        this._observedElements.get(element).count++;
-      }
-      return this._observedElements.get(element).stream;
-    });
-  }
-  _unobserveElement(element) {
-    if (this._observedElements.has(element)) {
-      this._observedElements.get(element).count--;
-      if (!this._observedElements.get(element).count) {
-        this._cleanupObserver(element);
-      }
-    }
-  }
-  _cleanupObserver(element) {
-    if (this._observedElements.has(element)) {
-      const {
-        observer,
-        stream
-      } = this._observedElements.get(element);
-      if (observer) {
-        observer.disconnect();
-      }
-      stream.complete();
-      this._observedElements.delete(element);
-    }
-  }
-  static ɵfac = function ContentObserver_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _ContentObserver)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _ContentObserver,
-    factory: _ContentObserver.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ContentObserver, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [], null);
-})();
-var CdkObserveContent = class _CdkObserveContent {
-  _contentObserver = inject(ContentObserver);
-  _elementRef = inject(ElementRef);
-  event = new EventEmitter();
-  get disabled() {
-    return this._disabled;
-  }
-  set disabled(value) {
-    this._disabled = value;
-    this._disabled ? this._unsubscribe() : this._subscribe();
-  }
-  _disabled = false;
-  get debounce() {
-    return this._debounce;
-  }
-  set debounce(value) {
-    this._debounce = coerceNumberProperty(value);
-    this._subscribe();
-  }
-  _debounce;
-  _currentSubscription = null;
-  constructor() {
-  }
-  ngAfterContentInit() {
-    if (!this._currentSubscription && !this.disabled) {
-      this._subscribe();
-    }
-  }
-  ngOnDestroy() {
-    this._unsubscribe();
-  }
-  _subscribe() {
-    this._unsubscribe();
-    const stream = this._contentObserver.observe(this._elementRef);
-    this._currentSubscription = (this.debounce ? stream.pipe(debounceTime(this.debounce)) : stream).subscribe(this.event);
-  }
-  _unsubscribe() {
-    this._currentSubscription?.unsubscribe();
-  }
-  static ɵfac = function CdkObserveContent_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _CdkObserveContent)();
-  };
-  static ɵdir = ɵɵdefineDirective({
-    type: _CdkObserveContent,
-    selectors: [["", "cdkObserveContent", ""]],
-    inputs: {
-      disabled: [2, "cdkObserveContentDisabled", "disabled", booleanAttribute],
-      debounce: "debounce"
-    },
-    outputs: {
-      event: "cdkObserveContent"
-    },
-    exportAs: ["cdkObserveContent"]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkObserveContent, [{
-    type: Directive,
-    args: [{
-      selector: "[cdkObserveContent]",
-      exportAs: "cdkObserveContent"
-    }]
-  }], () => [], {
-    event: [{
-      type: Output,
-      args: ["cdkObserveContent"]
-    }],
-    disabled: [{
-      type: Input,
-      args: [{
-        alias: "cdkObserveContentDisabled",
-        transform: booleanAttribute
-      }]
-    }],
-    debounce: [{
-      type: Input
-    }]
-  });
-})();
-var ObserversModule = class _ObserversModule {
-  static ɵfac = function ObserversModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _ObserversModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _ObserversModule,
-    imports: [CdkObserveContent],
-    exports: [CdkObserveContent]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    providers: [MutationObserverFactory]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ObserversModule, [{
-    type: NgModule,
-    args: [{
-      imports: [CdkObserveContent],
-      exports: [CdkObserveContent],
-      providers: [MutationObserverFactory]
-    }]
-  }], null, null);
-})();
 
 // node_modules/@angular/cdk/fesm2022/_a11y-module-chunk.mjs
 var InteractivityChecker = class _InteractivityChecker {
@@ -2661,44 +2568,6 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
   }], () => [], null);
 })();
 
-// node_modules/@angular/material/fesm2022/_structural-styles-chunk.mjs
-var _StructuralStylesLoader = class __StructuralStylesLoader {
-  static ɵfac = function _StructuralStylesLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __StructuralStylesLoader)();
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: __StructuralStylesLoader,
-    selectors: [["structural-styles"]],
-    decls: 0,
-    vars: 0,
-    template: function _StructuralStylesLoader_Template(rf, ctx) {
-    },
-    styles: ['.mat-focus-indicator{position:relative}.mat-focus-indicator::before{top:0;left:0;right:0;bottom:0;position:absolute;box-sizing:border-box;pointer-events:none;display:var(--mat-focus-indicator-display, none);border-width:var(--mat-focus-indicator-border-width, 3px);border-style:var(--mat-focus-indicator-border-style, solid);border-color:var(--mat-focus-indicator-border-color, transparent);border-radius:var(--mat-focus-indicator-border-radius, 4px)}.mat-focus-indicator:focus-visible::before{content:""}@media(forced-colors: active){html{--mat-focus-indicator-display: block}}\n'],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_StructuralStylesLoader, [{
-    type: Component,
-    args: [{
-      selector: "structural-styles",
-      encapsulation: ViewEncapsulation.None,
-      template: "",
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      styles: ['.mat-focus-indicator{position:relative}.mat-focus-indicator::before{top:0;left:0;right:0;bottom:0;position:absolute;box-sizing:border-box;pointer-events:none;display:var(--mat-focus-indicator-display, none);border-width:var(--mat-focus-indicator-border-width, 3px);border-style:var(--mat-focus-indicator-border-style, solid);border-color:var(--mat-focus-indicator-border-color, transparent);border-radius:var(--mat-focus-indicator-border-radius, 4px)}.mat-focus-indicator:focus-visible::before{content:""}@media(forced-colors: active){html{--mat-focus-indicator-display: block}}\n']
-    }]
-  }], null, null);
-})();
-
-// node_modules/@angular/cdk/fesm2022/_css-pixel-value-chunk.mjs
-function coerceCssPixelValue(value) {
-  if (value == null) {
-    return "";
-  }
-  return typeof value === "string" ? value : `${value}px`;
-}
-
 // node_modules/@angular/cdk/fesm2022/layout.mjs
 var LayoutModule = class _LayoutModule {
   static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
@@ -2734,518 +2603,10 @@ function _animationsDisabled() {
   return _getAnimationsState() !== "enabled";
 }
 
-// node_modules/@angular/material/fesm2022/_ripple-chunk.mjs
-var RippleState;
-(function(RippleState2) {
-  RippleState2[RippleState2["FADING_IN"] = 0] = "FADING_IN";
-  RippleState2[RippleState2["VISIBLE"] = 1] = "VISIBLE";
-  RippleState2[RippleState2["FADING_OUT"] = 2] = "FADING_OUT";
-  RippleState2[RippleState2["HIDDEN"] = 3] = "HIDDEN";
-})(RippleState || (RippleState = {}));
-var RippleRef = class {
-  _renderer;
-  element;
-  config;
-  _animationForciblyDisabledThroughCss;
-  state = RippleState.HIDDEN;
-  constructor(_renderer, element, config, _animationForciblyDisabledThroughCss = false) {
-    this._renderer = _renderer;
-    this.element = element;
-    this.config = config;
-    this._animationForciblyDisabledThroughCss = _animationForciblyDisabledThroughCss;
-  }
-  fadeOut() {
-    this._renderer.fadeOutRipple(this);
-  }
-};
-var passiveCapturingEventOptions$1 = normalizePassiveListenerOptions({
-  passive: true,
-  capture: true
-});
-var RippleEventManager = class {
-  _events = /* @__PURE__ */ new Map();
-  addHandler(ngZone, name, element, handler) {
-    const handlersForEvent = this._events.get(name);
-    if (handlersForEvent) {
-      const handlersForElement = handlersForEvent.get(element);
-      if (handlersForElement) {
-        handlersForElement.add(handler);
-      } else {
-        handlersForEvent.set(element, /* @__PURE__ */ new Set([handler]));
-      }
-    } else {
-      this._events.set(name, /* @__PURE__ */ new Map([[element, /* @__PURE__ */ new Set([handler])]]));
-      ngZone.runOutsideAngular(() => {
-        document.addEventListener(name, this._delegateEventHandler, passiveCapturingEventOptions$1);
-      });
-    }
-  }
-  removeHandler(name, element, handler) {
-    const handlersForEvent = this._events.get(name);
-    if (!handlersForEvent) {
-      return;
-    }
-    const handlersForElement = handlersForEvent.get(element);
-    if (!handlersForElement) {
-      return;
-    }
-    handlersForElement.delete(handler);
-    if (handlersForElement.size === 0) {
-      handlersForEvent.delete(element);
-    }
-    if (handlersForEvent.size === 0) {
-      this._events.delete(name);
-      document.removeEventListener(name, this._delegateEventHandler, passiveCapturingEventOptions$1);
-    }
-  }
-  _delegateEventHandler = (event) => {
-    const target = _getEventTarget(event);
-    if (target) {
-      this._events.get(event.type)?.forEach((handlers, element) => {
-        if (element === target || element.contains(target)) {
-          handlers.forEach((handler) => handler.handleEvent(event));
-        }
-      });
-    }
-  };
-};
-var defaultRippleAnimationConfig = {
-  enterDuration: 225,
-  exitDuration: 150
-};
-var ignoreMouseEventsTimeout = 800;
-var passiveCapturingEventOptions = normalizePassiveListenerOptions({
-  passive: true,
-  capture: true
-});
-var pointerDownEvents = ["mousedown", "touchstart"];
-var pointerUpEvents = ["mouseup", "mouseleave", "touchend", "touchcancel"];
-var _MatRippleStylesLoader = class __MatRippleStylesLoader {
-  static ɵfac = function _MatRippleStylesLoader_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || __MatRippleStylesLoader)();
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: __MatRippleStylesLoader,
-    selectors: [["ng-component"]],
-    hostAttrs: ["mat-ripple-style-loader", ""],
-    decls: 0,
-    vars: 0,
-    template: function _MatRippleStylesLoader_Template(rf, ctx) {
-    },
-    styles: [".mat-ripple{overflow:hidden;position:relative}.mat-ripple:not(:empty){transform:translateZ(0)}.mat-ripple.mat-ripple-unbounded{overflow:visible}.mat-ripple-element{position:absolute;border-radius:50%;pointer-events:none;transition:opacity,transform 0ms cubic-bezier(0, 0, 0.2, 1);transform:scale3d(0, 0, 0);background-color:var(--mat-ripple-color, color-mix(in srgb, var(--mat-sys-on-surface) 10%, transparent))}@media(forced-colors: active){.mat-ripple-element{display:none}}.cdk-drag-preview .mat-ripple-element,.cdk-drag-placeholder .mat-ripple-element{display:none}\n"],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatRippleStylesLoader, [{
-    type: Component,
-    args: [{
-      template: "",
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      encapsulation: ViewEncapsulation.None,
-      host: {
-        "mat-ripple-style-loader": ""
-      },
-      styles: [".mat-ripple{overflow:hidden;position:relative}.mat-ripple:not(:empty){transform:translateZ(0)}.mat-ripple.mat-ripple-unbounded{overflow:visible}.mat-ripple-element{position:absolute;border-radius:50%;pointer-events:none;transition:opacity,transform 0ms cubic-bezier(0, 0, 0.2, 1);transform:scale3d(0, 0, 0);background-color:var(--mat-ripple-color, color-mix(in srgb, var(--mat-sys-on-surface) 10%, transparent))}@media(forced-colors: active){.mat-ripple-element{display:none}}.cdk-drag-preview .mat-ripple-element,.cdk-drag-placeholder .mat-ripple-element{display:none}\n"]
-    }]
-  }], null, null);
-})();
-var RippleRenderer = class _RippleRenderer {
-  _target;
-  _ngZone;
-  _platform;
-  _containerElement;
-  _triggerElement = null;
-  _isPointerDown = false;
-  _activeRipples = /* @__PURE__ */ new Map();
-  _mostRecentTransientRipple = null;
-  _lastTouchStartEvent;
-  _pointerUpEventsRegistered = false;
-  _containerRect = null;
-  static _eventManager = new RippleEventManager();
-  constructor(_target, _ngZone, elementOrElementRef, _platform, injector) {
-    this._target = _target;
-    this._ngZone = _ngZone;
-    this._platform = _platform;
-    if (_platform.isBrowser) {
-      this._containerElement = coerceElement(elementOrElementRef);
-    }
-    if (injector) {
-      injector.get(_CdkPrivateStyleLoader).load(_MatRippleStylesLoader);
-    }
-  }
-  fadeInRipple(x, y, config = {}) {
-    const containerRect = this._containerRect = this._containerRect || this._containerElement.getBoundingClientRect();
-    const animationConfig = __spreadValues(__spreadValues({}, defaultRippleAnimationConfig), config.animation);
-    if (config.centered) {
-      x = containerRect.left + containerRect.width / 2;
-      y = containerRect.top + containerRect.height / 2;
-    }
-    const radius = config.radius || distanceToFurthestCorner(x, y, containerRect);
-    const offsetX = x - containerRect.left;
-    const offsetY = y - containerRect.top;
-    const enterDuration = animationConfig.enterDuration;
-    const ripple = document.createElement("div");
-    ripple.classList.add("mat-ripple-element");
-    ripple.style.left = `${offsetX - radius}px`;
-    ripple.style.top = `${offsetY - radius}px`;
-    ripple.style.height = `${radius * 2}px`;
-    ripple.style.width = `${radius * 2}px`;
-    if (config.color != null) {
-      ripple.style.backgroundColor = config.color;
-    }
-    ripple.style.transitionDuration = `${enterDuration}ms`;
-    this._containerElement.appendChild(ripple);
-    const computedStyles = window.getComputedStyle(ripple);
-    const userTransitionProperty = computedStyles.transitionProperty;
-    const userTransitionDuration = computedStyles.transitionDuration;
-    const animationForciblyDisabledThroughCss = userTransitionProperty === "none" || userTransitionDuration === "0s" || userTransitionDuration === "0s, 0s" || containerRect.width === 0 && containerRect.height === 0;
-    const rippleRef = new RippleRef(this, ripple, config, animationForciblyDisabledThroughCss);
-    ripple.style.transform = "scale3d(1, 1, 1)";
-    rippleRef.state = RippleState.FADING_IN;
-    if (!config.persistent) {
-      this._mostRecentTransientRipple = rippleRef;
-    }
-    let eventListeners = null;
-    if (!animationForciblyDisabledThroughCss && (enterDuration || animationConfig.exitDuration)) {
-      this._ngZone.runOutsideAngular(() => {
-        const onTransitionEnd = () => {
-          if (eventListeners) {
-            eventListeners.fallbackTimer = null;
-          }
-          clearTimeout(fallbackTimer);
-          this._finishRippleTransition(rippleRef);
-        };
-        const onTransitionCancel = () => this._destroyRipple(rippleRef);
-        const fallbackTimer = setTimeout(onTransitionCancel, enterDuration + 100);
-        ripple.addEventListener("transitionend", onTransitionEnd);
-        ripple.addEventListener("transitioncancel", onTransitionCancel);
-        eventListeners = {
-          onTransitionEnd,
-          onTransitionCancel,
-          fallbackTimer
-        };
-      });
-    }
-    this._activeRipples.set(rippleRef, eventListeners);
-    if (animationForciblyDisabledThroughCss || !enterDuration) {
-      this._finishRippleTransition(rippleRef);
-    }
-    return rippleRef;
-  }
-  fadeOutRipple(rippleRef) {
-    if (rippleRef.state === RippleState.FADING_OUT || rippleRef.state === RippleState.HIDDEN) {
-      return;
-    }
-    const rippleEl = rippleRef.element;
-    const animationConfig = __spreadValues(__spreadValues({}, defaultRippleAnimationConfig), rippleRef.config.animation);
-    rippleEl.style.transitionDuration = `${animationConfig.exitDuration}ms`;
-    rippleEl.style.opacity = "0";
-    rippleRef.state = RippleState.FADING_OUT;
-    if (rippleRef._animationForciblyDisabledThroughCss || !animationConfig.exitDuration) {
-      this._finishRippleTransition(rippleRef);
-    }
-  }
-  fadeOutAll() {
-    this._getActiveRipples().forEach((ripple) => ripple.fadeOut());
-  }
-  fadeOutAllNonPersistent() {
-    this._getActiveRipples().forEach((ripple) => {
-      if (!ripple.config.persistent) {
-        ripple.fadeOut();
-      }
-    });
-  }
-  setupTriggerEvents(elementOrElementRef) {
-    const element = coerceElement(elementOrElementRef);
-    if (!this._platform.isBrowser || !element || element === this._triggerElement) {
-      return;
-    }
-    this._removeTriggerEvents();
-    this._triggerElement = element;
-    pointerDownEvents.forEach((type) => {
-      _RippleRenderer._eventManager.addHandler(this._ngZone, type, element, this);
-    });
-  }
-  handleEvent(event) {
-    if (event.type === "mousedown") {
-      this._onMousedown(event);
-    } else if (event.type === "touchstart") {
-      this._onTouchStart(event);
-    } else {
-      this._onPointerUp();
-    }
-    if (!this._pointerUpEventsRegistered) {
-      this._ngZone.runOutsideAngular(() => {
-        pointerUpEvents.forEach((type) => {
-          this._triggerElement.addEventListener(type, this, passiveCapturingEventOptions);
-        });
-      });
-      this._pointerUpEventsRegistered = true;
-    }
-  }
-  _finishRippleTransition(rippleRef) {
-    if (rippleRef.state === RippleState.FADING_IN) {
-      this._startFadeOutTransition(rippleRef);
-    } else if (rippleRef.state === RippleState.FADING_OUT) {
-      this._destroyRipple(rippleRef);
-    }
-  }
-  _startFadeOutTransition(rippleRef) {
-    const isMostRecentTransientRipple = rippleRef === this._mostRecentTransientRipple;
-    const {
-      persistent
-    } = rippleRef.config;
-    rippleRef.state = RippleState.VISIBLE;
-    if (!persistent && (!isMostRecentTransientRipple || !this._isPointerDown)) {
-      rippleRef.fadeOut();
-    }
-  }
-  _destroyRipple(rippleRef) {
-    const eventListeners = this._activeRipples.get(rippleRef) ?? null;
-    this._activeRipples.delete(rippleRef);
-    if (!this._activeRipples.size) {
-      this._containerRect = null;
-    }
-    if (rippleRef === this._mostRecentTransientRipple) {
-      this._mostRecentTransientRipple = null;
-    }
-    rippleRef.state = RippleState.HIDDEN;
-    if (eventListeners !== null) {
-      rippleRef.element.removeEventListener("transitionend", eventListeners.onTransitionEnd);
-      rippleRef.element.removeEventListener("transitioncancel", eventListeners.onTransitionCancel);
-      if (eventListeners.fallbackTimer !== null) {
-        clearTimeout(eventListeners.fallbackTimer);
-      }
-    }
-    rippleRef.element.remove();
-  }
-  _onMousedown(event) {
-    const isFakeMousedown = isFakeMousedownFromScreenReader(event);
-    const isSyntheticEvent = this._lastTouchStartEvent && Date.now() < this._lastTouchStartEvent + ignoreMouseEventsTimeout;
-    if (!this._target.rippleDisabled && !isFakeMousedown && !isSyntheticEvent) {
-      this._isPointerDown = true;
-      this.fadeInRipple(event.clientX, event.clientY, this._target.rippleConfig);
-    }
-  }
-  _onTouchStart(event) {
-    if (!this._target.rippleDisabled && !isFakeTouchstartFromScreenReader(event)) {
-      this._lastTouchStartEvent = Date.now();
-      this._isPointerDown = true;
-      const touches = event.changedTouches;
-      if (touches) {
-        for (let i = 0; i < touches.length; i++) {
-          this.fadeInRipple(touches[i].clientX, touches[i].clientY, this._target.rippleConfig);
-        }
-      }
-    }
-  }
-  _onPointerUp() {
-    if (!this._isPointerDown) {
-      return;
-    }
-    this._isPointerDown = false;
-    this._getActiveRipples().forEach((ripple) => {
-      const isVisible = ripple.state === RippleState.VISIBLE || ripple.config.terminateOnPointerUp && ripple.state === RippleState.FADING_IN;
-      if (!ripple.config.persistent && isVisible) {
-        ripple.fadeOut();
-      }
-    });
-  }
-  _getActiveRipples() {
-    return Array.from(this._activeRipples.keys());
-  }
-  _removeTriggerEvents() {
-    const trigger = this._triggerElement;
-    if (trigger) {
-      pointerDownEvents.forEach((type) => _RippleRenderer._eventManager.removeHandler(type, trigger, this));
-      if (this._pointerUpEventsRegistered) {
-        pointerUpEvents.forEach((type) => trigger.removeEventListener(type, this, passiveCapturingEventOptions));
-        this._pointerUpEventsRegistered = false;
-      }
-    }
-  }
-};
-function distanceToFurthestCorner(x, y, rect) {
-  const distX = Math.max(Math.abs(x - rect.left), Math.abs(x - rect.right));
-  const distY = Math.max(Math.abs(y - rect.top), Math.abs(y - rect.bottom));
-  return Math.sqrt(distX * distX + distY * distY);
-}
-var MAT_RIPPLE_GLOBAL_OPTIONS = new InjectionToken("mat-ripple-global-options");
-var MatRipple = class _MatRipple {
-  _elementRef = inject(ElementRef);
-  _animationsDisabled = _animationsDisabled();
-  color;
-  unbounded = false;
-  centered = false;
-  radius = 0;
-  animation;
-  get disabled() {
-    return this._disabled;
-  }
-  set disabled(value) {
-    if (value) {
-      this.fadeOutAllNonPersistent();
-    }
-    this._disabled = value;
-    this._setupTriggerEventsIfEnabled();
-  }
-  _disabled = false;
-  get trigger() {
-    return this._trigger || this._elementRef.nativeElement;
-  }
-  set trigger(trigger) {
-    this._trigger = trigger;
-    this._setupTriggerEventsIfEnabled();
-  }
-  _trigger;
-  _rippleRenderer;
-  _globalOptions;
-  _isInitialized = false;
-  constructor() {
-    const ngZone = inject(NgZone);
-    const platform = inject(Platform);
-    const globalOptions = inject(MAT_RIPPLE_GLOBAL_OPTIONS, {
-      optional: true
-    });
-    const injector = inject(Injector);
-    this._globalOptions = globalOptions || {};
-    this._rippleRenderer = new RippleRenderer(this, ngZone, this._elementRef, platform, injector);
-  }
-  ngOnInit() {
-    this._isInitialized = true;
-    this._setupTriggerEventsIfEnabled();
-  }
-  ngOnDestroy() {
-    this._rippleRenderer._removeTriggerEvents();
-  }
-  fadeOutAll() {
-    this._rippleRenderer.fadeOutAll();
-  }
-  fadeOutAllNonPersistent() {
-    this._rippleRenderer.fadeOutAllNonPersistent();
-  }
-  get rippleConfig() {
-    return {
-      centered: this.centered,
-      radius: this.radius,
-      color: this.color,
-      animation: __spreadValues(__spreadValues(__spreadValues({}, this._globalOptions.animation), this._animationsDisabled ? {
-        enterDuration: 0,
-        exitDuration: 0
-      } : {}), this.animation),
-      terminateOnPointerUp: this._globalOptions.terminateOnPointerUp
-    };
-  }
-  get rippleDisabled() {
-    return this.disabled || !!this._globalOptions.disabled;
-  }
-  _setupTriggerEventsIfEnabled() {
-    if (!this.disabled && this._isInitialized) {
-      this._rippleRenderer.setupTriggerEvents(this.trigger);
-    }
-  }
-  launch(configOrX, y = 0, config) {
-    if (typeof configOrX === "number") {
-      return this._rippleRenderer.fadeInRipple(configOrX, y, __spreadValues(__spreadValues({}, this.rippleConfig), config));
-    } else {
-      return this._rippleRenderer.fadeInRipple(0, 0, __spreadValues(__spreadValues({}, this.rippleConfig), configOrX));
-    }
-  }
-  static ɵfac = function MatRipple_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _MatRipple)();
-  };
-  static ɵdir = ɵɵdefineDirective({
-    type: _MatRipple,
-    selectors: [["", "mat-ripple", ""], ["", "matRipple", ""]],
-    hostAttrs: [1, "mat-ripple"],
-    hostVars: 2,
-    hostBindings: function MatRipple_HostBindings(rf, ctx) {
-      if (rf & 2) {
-        ɵɵclassProp("mat-ripple-unbounded", ctx.unbounded);
-      }
-    },
-    inputs: {
-      color: [0, "matRippleColor", "color"],
-      unbounded: [0, "matRippleUnbounded", "unbounded"],
-      centered: [0, "matRippleCentered", "centered"],
-      radius: [0, "matRippleRadius", "radius"],
-      animation: [0, "matRippleAnimation", "animation"],
-      disabled: [0, "matRippleDisabled", "disabled"],
-      trigger: [0, "matRippleTrigger", "trigger"]
-    },
-    exportAs: ["matRipple"]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRipple, [{
-    type: Directive,
-    args: [{
-      selector: "[mat-ripple], [matRipple]",
-      exportAs: "matRipple",
-      host: {
-        "class": "mat-ripple",
-        "[class.mat-ripple-unbounded]": "unbounded"
-      }
-    }]
-  }], () => [], {
-    color: [{
-      type: Input,
-      args: ["matRippleColor"]
-    }],
-    unbounded: [{
-      type: Input,
-      args: ["matRippleUnbounded"]
-    }],
-    centered: [{
-      type: Input,
-      args: ["matRippleCentered"]
-    }],
-    radius: [{
-      type: Input,
-      args: ["matRippleRadius"]
-    }],
-    animation: [{
-      type: Input,
-      args: ["matRippleAnimation"]
-    }],
-    disabled: [{
-      type: Input,
-      args: ["matRippleDisabled"]
-    }],
-    trigger: [{
-      type: Input,
-      args: ["matRippleTrigger"]
-    }]
-  });
-})();
-
-// node_modules/@angular/material/fesm2022/_ripple-module-chunk.mjs
-var MatRippleModule = class _MatRippleModule {
-  static ɵfac = function MatRippleModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _MatRippleModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _MatRippleModule,
-    imports: [MatRipple],
-    exports: [MatRipple, BidiModule]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [BidiModule]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRippleModule, [{
-    type: NgModule,
-    args: [{
-      imports: [MatRipple],
-      exports: [MatRipple, BidiModule]
-    }]
-  }], null, null);
-})();
-
 export {
+  coerceArray,
+  coerceCssPixelValue,
+  coerceBooleanProperty,
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   ENTER,
@@ -3255,19 +2616,13 @@ export {
   UP_ARROW,
   RIGHT_ARROW,
   DOWN_ARROW,
+  A,
   FocusMonitor,
-  _CdkPrivateStyleLoader,
-  coerceArray,
+  CdkObserveContent,
+  ObserversModule,
   _IdGenerator,
   hasModifierKey,
   FocusKeyManager,
-  _StructuralStylesLoader,
-  coerceCssPixelValue,
-  _animationsDisabled,
-  defaultRippleAnimationConfig,
-  RippleRenderer,
-  MAT_RIPPLE_GLOBAL_OPTIONS,
-  MatRipple,
-  MatRippleModule
+  _animationsDisabled
 };
-//# sourceMappingURL=chunk-LCK2VOGJ.js.map
+//# sourceMappingURL=chunk-VWCUL767.js.map

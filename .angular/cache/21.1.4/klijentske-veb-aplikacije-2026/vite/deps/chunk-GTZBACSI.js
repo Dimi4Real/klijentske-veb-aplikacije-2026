@@ -3,7 +3,7 @@ import {
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-VIBZ5ONV.js";
+} from "./chunk-4OKGCJT3.js";
 
 // node_modules/@angular/cdk/fesm2022/_shadow-dom-chunk.mjs
 var shadowDomIsSupported;
@@ -78,12 +78,30 @@ var PlatformModule = class _PlatformModule {
     args: [{}]
   }], null, null);
 })();
+var supportedInputTypes;
+var candidateInputTypes = ["color", "button", "checkbox", "date", "datetime-local", "email", "file", "hidden", "image", "month", "number", "password", "radio", "range", "reset", "search", "submit", "tel", "text", "time", "url", "week"];
+function getSupportedInputTypes() {
+  if (supportedInputTypes) {
+    return supportedInputTypes;
+  }
+  if (typeof document !== "object" || !document) {
+    supportedInputTypes = new Set(candidateInputTypes);
+    return supportedInputTypes;
+  }
+  let featureTestInput = document.createElement("input");
+  supportedInputTypes = new Set(candidateInputTypes.filter((value) => {
+    featureTestInput.setAttribute("type", value);
+    return featureTestInput.type === value;
+  }));
+  return supportedInputTypes;
+}
 
 export {
+  normalizePassiveListenerOptions,
   _getShadowRoot,
   _getFocusedElementPierceShadowDom,
   _getEventTarget,
-  normalizePassiveListenerOptions,
-  _isTestEnvironment
+  _isTestEnvironment,
+  getSupportedInputTypes
 };
-//# sourceMappingURL=chunk-GMA3HLX3.js.map
+//# sourceMappingURL=chunk-GTZBACSI.js.map
