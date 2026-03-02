@@ -1,10 +1,12 @@
-<mat-card class="login-card">
+@if(destinations().length >0 ){
+
+<mat-card class="small-card">
     <mat-card-header>
         <h1>User Details</h1>
     </mat-card-header>
     <mat-card-content>
         <div>
-             <mat-form-field class="full-width">
+            <mat-form-field class="full-width">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" [(ngModel)]="activeUser!.email" disabled>
             </mat-form-field>
@@ -35,8 +37,12 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <!-- <button type="button" matButton (click)="doLogin()">
-           <mat-icon fontIcon="login" /> Submit
-        </button> -->
+        <button type="button" matButton (click)="updateUser()">
+           <mat-icon fontIcon="save" /> Save Changes
+        </button>
     </mat-card-actions>
 </mat-card>
+}
+@else {
+    <app-loading></app-loading>
+}

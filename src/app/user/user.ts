@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import axios from 'axios';
+import { FlightService } from '../services/flight.service';
+import { Loading } from '../loading/loading';
 
 @Component({
   selector: 'app-user',
@@ -17,7 +19,8 @@ import axios from 'axios';
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    Loading
   ],
   templateUrl: './user.html',
   styleUrl: './user.css',
@@ -32,7 +35,7 @@ export class User {
       return
     }
 
-    axios.get('https://flight.pequla.com/api/flight/destination')
+    FlightService.getDestinations()
     .then(rsp=>this.destinations.set(rsp.data))
   }
 
