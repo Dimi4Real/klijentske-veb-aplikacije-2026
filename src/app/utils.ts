@@ -15,9 +15,8 @@ export class Utils {
     })
   }
 
-    getImageUrl(flight: FlightModel) {
+  getImageUrl(flight: FlightModel) {
     const fileName = flight.destination.split(' ')[0].toLowerCase()
     return `https://img.pequla.com/destination/${fileName}.jpg`
   }
 }
-

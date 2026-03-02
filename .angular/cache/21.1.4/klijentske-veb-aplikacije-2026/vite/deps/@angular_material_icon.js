@@ -1,15 +1,15 @@
 import {
   trustedHTMLFromString
 } from "./chunk-PCHI5QIL.js";
-import "./chunk-VRTVLALN.js";
-import {
-  BidiModule
-} from "./chunk-UNFM7FGP.js";
 import {
   DomSanitizer,
   HttpClient
 } from "./chunk-UFKYIEME.js";
+import "./chunk-VRTVLALN.js";
 import "./chunk-X4VONPNX.js";
+import {
+  BidiModule
+} from "./chunk-UNFM7FGP.js";
 import {
   ChangeDetectionStrategy,
   Component,

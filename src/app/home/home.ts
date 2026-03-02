@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import axios from 'axios';
 import { FlightModel } from '../../models/flight.model';
 import { RouterLink } from "@angular/router";
-import { MatButtonModule, MatIconAnchor} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Utils } from '../utils';
-import {MatIconModule} from '@angular/material/icon';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './home.css',
 })
 export class Home {
+  public authService = AuthService
   flights = signal<FlightModel[]>([])
 
   constructor(public utils: Utils) {
@@ -24,4 +26,3 @@ export class Home {
       })
   }
 }
- 

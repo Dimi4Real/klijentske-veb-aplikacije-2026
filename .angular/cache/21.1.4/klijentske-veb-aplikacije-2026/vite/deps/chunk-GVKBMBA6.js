@@ -97,11 +97,11 @@ function getSupportedInputTypes() {
 }
 
 export {
-  normalizePassiveListenerOptions,
   _getShadowRoot,
   _getFocusedElementPierceShadowDom,
   _getEventTarget,
+  normalizePassiveListenerOptions,
   _isTestEnvironment,
   getSupportedInputTypes
 };
-//# sourceMappingURL=chunk-GTZBACSI.js.map
+//# sourceMappingURL=chunk-GVKBMBA6.js.map
