@@ -3,11 +3,11 @@ import {
   _setInnerHtml
 } from "./chunk-PCHI5QIL.js";
 import {
-  DomSanitizer
-} from "./chunk-UFKYIEME.js";
-import {
   _CdkPrivateStyleLoader
 } from "./chunk-VRTVLALN.js";
+import {
+  DomSanitizer
+} from "./chunk-UFKYIEME.js";
 import {
   coerceElement,
   coerceNumberProperty
@@ -2568,19 +2568,6 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
   }], () => [], null);
 })();
 
-// node_modules/@angular/cdk/fesm2022/_css-pixel-value-chunk.mjs
-function coerceCssPixelValue(value) {
-  if (value == null) {
-    return "";
-  }
-  return typeof value === "string" ? value : `${value}px`;
-}
-
-// node_modules/@angular/cdk/fesm2022/coercion.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
-}
-
 // node_modules/@angular/cdk/fesm2022/layout.mjs
 var LayoutModule = class _LayoutModule {
   static ɵfac = function LayoutModule_Factory(__ngFactoryType__) {
@@ -2616,6 +2603,19 @@ function _animationsDisabled() {
   return _getAnimationsState() !== "enabled";
 }
 
+// node_modules/@angular/cdk/fesm2022/_css-pixel-value-chunk.mjs
+function coerceCssPixelValue(value) {
+  if (value == null) {
+    return "";
+  }
+  return typeof value === "string" ? value : `${value}px`;
+}
+
+// node_modules/@angular/cdk/fesm2022/coercion.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
+
 export {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
@@ -2638,8 +2638,8 @@ export {
   FocusKeyManager,
   addAriaReferencedId,
   removeAriaReferencedId,
+  _animationsDisabled,
   coerceCssPixelValue,
-  coerceBooleanProperty,
-  _animationsDisabled
+  coerceBooleanProperty
 };
-//# sourceMappingURL=chunk-IYJXM5BG.js.map
+//# sourceMappingURL=chunk-Z4O4T4IF.js.map
