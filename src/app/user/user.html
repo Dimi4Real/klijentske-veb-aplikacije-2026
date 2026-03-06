@@ -77,6 +77,23 @@
             </mat-card-actions>
         </mat-card>
     </div>
+    <mat-card class="user-card">
+        <mat-card-header>
+            <h1>Recommended Flights</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+                @for(f of recommended(); track $index) {
+                <mat-list-item>
+                    <mat-icon matListItemIcon>flight</mat-icon>
+                    <div matListItemTitle>{{f.flightNumber}}</div>
+                    <div matListItemLine>{{utils.formatDate(f.scheduledAt)}}</div>
+                    <a [routerLink]="`/details/${f.id}`" matButton>Open Details</a>
+                </mat-list-item>
+                }
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
 </div>
 } @else {
 <app-loading />

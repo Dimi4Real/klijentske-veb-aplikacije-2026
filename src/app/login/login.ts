@@ -36,6 +36,6 @@ export class Login {
       return
     }
 
-    Alerts.error('Invalid email or password')
+    Alerts.error('Invalid email or password!')
   }
 }
